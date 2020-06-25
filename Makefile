@@ -79,3 +79,14 @@ clean:
 
 distclean: clean
 
+install: all
+	mkdir -p ${DESTDIR}/bin
+	cp -f tint ${DESTDIR}/bin
+	chmod 755 ${DESTDIR}/bin/tint
+	mkdir -p ${DESTDIR}/share/tint-tetris
+	cp -f debian/copyright ${DESTDIR}/share/tint-tetris/LICENSE
+	chmod 644 ${DESTDIR}${PREFIX}/share/tint-tetris/LICENSE
+
+uninstall: 
+	rm -rf ${DESTDIR}/bin/tint\
+		${DESTDIR}${PREFIX}/share/tint-tetris/LICENSE
